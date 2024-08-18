@@ -16,6 +16,9 @@ services:
     container_name: playwright-agent
     depends_on:
       - jenkins
+    volumes:
+      - workspace:/var/jenkins/workspace
 
 volumes:
   jenkins_home:
+  workspace:

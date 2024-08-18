@@ -4,8 +4,11 @@ FROM node:latest
 # Verifica e instala npm si es necesario
 RUN npm install -g npm@latest
 
-# Instala los navegadores de Playwright y dependencias del sistema
-RUN npx playwright install && npx playwright install-deps
+# Instala los navegadores de Playwright
+RUN npx playwright install
+
+# Instala las dependencias de Playwright
+RUN npx playwright install-deps
 
 # Instala el JDK por defecto y curl
 RUN apt-get update && apt-get install -y default-jdk curl && apt-get clean
