@@ -4,6 +4,9 @@ FROM node:latest
 # Instala el JDK por defecto y curl
 RUN apt-get update && apt-get install -y default-jdk curl && apt-get clean
 
+# Verifica e instala npm si es necesario
+RUN npm install -g npm@latest
+
 # Crea el directorio de trabajo
 WORKDIR /var/jenkins
 
