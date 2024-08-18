@@ -1,11 +1,14 @@
 # Usa una imagen base de Node.js
 FROM node:latest
 
-# Instala el JDK por defecto y curl
-RUN apt-get update && apt-get install -y default-jdk curl && apt-get clean
-
 # Verifica e instala npm si es necesario
 RUN npm install -g npm@latest
+
+# Instala los navegadores de Playwright y dependencias del sistema
+RUN npx playwright install && npx playwright install-deps
+
+# Instala el JDK por defecto y curl
+RUN apt-get update && apt-get install -y default-jdk curl && apt-get clean
 
 # Crea el directorio de trabajo
 WORKDIR /var/jenkins
