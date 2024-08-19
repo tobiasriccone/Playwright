@@ -5,6 +5,9 @@
   "main": "index.js",
   "scripts": {
     "regre": "npx playwright test",
+    "regre-web": "npx playwright test --project=web",
+    "regre-mobile": "npx playwright test --project=web-mobile",
+    "regre-api": "npx playwright test --project=api",
     "allure": "npx allure generate reportes/allure-results -o reportes/allure-report --clean && npx allure open reportes/allure-report"
   },
   "keywords": [],
