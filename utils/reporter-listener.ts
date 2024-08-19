@@ -19,7 +19,7 @@ class MyReporter implements Reporter {
     }
 
     onEnd(result: FullResult) {
-        console.log(`----- Ejecución Finalizada con el estado: ${result.status} -----\n`);
+        console.log(`----- Ejecucion Finalizada con el estado: ${result.status} -----\n`);
     }
 }
 
