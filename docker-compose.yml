@@ -1,13 +1,14 @@
 version: '3.8'
 
 services:
+
+  # Si se levanta por primera vez el Jenkins, habrá que configurarlo
+  # - Instalar plugins sugeridos
+  # - Instalar plugin de Allure
+  # - Configurar Allure Commandline
+  # - Añadir el agente
+  # - Configurar Job (que ejecute solo en el agente playwright)
   jenkins:
-    # Si se levanta por primera vez el Jenkins, habrá que configurarlo
-    # - Instalar plugins sugeridos
-    # - Instalar plugin de Allure
-    # - Configurar Allure Commandline
-    # - Añadir el agente
-    # - Configurar Job (que ejecute solo en el agente playwright)
     image: jenkins/jenkins:lts
     container_name: jenkins
     restart: always
@@ -17,9 +18,9 @@ services:
     volumes:
       - jenkins_home:/var/jenkins_home
 
+  # Si se levanta por primera vez el agente, habrá que vincularlo al jenkins
+  # - Ejecutar el comando curl que nos proporciona el jenkins
   agent:
-    # Si se levanta por primera vez el agente, habrá que vincularlo al jenkins
-    # - Ejecutar el comando curl que nos proporciona el jenkins
     build: .
     container_name: playwright-agent
     restart: always
