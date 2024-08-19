@@ -4,13 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "regre": "npx playwright test"
+    "regre": "npx playwright test",
+    "allure": "npx allure generate ./allure-results --clean && npx allure open ./allure-report"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.46.0",
-    "@types/node": "^22.3.0"
+    "@types/node": "^22.3.0",
+    "allure-commandline": "^2.30.0",
+    "allure-playwright": "^3.0.0-beta.10"
   }
 }
