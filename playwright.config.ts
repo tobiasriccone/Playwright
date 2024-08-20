@@ -3,6 +3,7 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: './tests',
   fullyParallel: false,
+  timeout: 10000,
   reporter: [
       ["allure-playwright", { detail: false, resultsDir: "reportes/allure-results" }], // Fuente: https://www.npmjs.com/package/allure-playwright y
       ['./utils/reporter-listener.ts']
