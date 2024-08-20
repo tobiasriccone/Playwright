@@ -16,19 +16,19 @@ services:
       - "8080:8080"
       - "50000:50000"
     volumes:
-      - jenkins_home:/var/jenkins_home
+      - jenkins-vol:/var/jenkins_home
 
   # Si se levanta por primera vez el agente, habrá que vincularlo al jenkins
   # - Ejecutar el comando curl que nos proporciona el jenkins
-  agent:
+  playwright-agent:
     build: .
     container_name: playwright-agent
     restart: always
     depends_on:
       - jenkins
     volumes:
-      - workspace:/var/jenkins/workspace
+      - playwright-agent-vol:/var/jenkins/workspace
 
 volumes:
-  jenkins_home:
-  workspace:
+  jenkins-vol:
+  playwright-agent-vol:
