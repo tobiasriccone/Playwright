@@ -1,17 +1,20 @@
-# Usa una imagen base de Node.js
-FROM node:latest
+# Usar la imagen oficial de Playwright como base
+FROM mcr.microsoft.com/playwright:focal
 
-# Verifica e instala npm si es necesario
-RUN npm install -g npm@latest
+# Instalar Java 11
+RUN apt-get update && \
+    apt-get install -y openjdk-11-jdk && \
+    apt-get clean
 
-# Instala los navegadores de Playwright
-RUN npx playwright install
+# Establecer la variable de entorno JAVA_HOME para Java 11
+ENV JAVA_HOME /usr/lib/jvm/java-11-openjdk-amd64
+ENV PATH $JAVA_HOME/bin:$PATH
 
-# Instala las dependencias de Playwright
-RUN npx playwright install-deps
+# Verificar las versiones instaladas
+RUN node -v && npm -v && java -version
 
-# Instala el JDK por defecto y curl
-RUN apt-get update && apt-get install -y default-jdk curl && apt-get clean
+# Definir el directorio de trabajo en el contenedor
+WORKDIR /app
 
-# Crea el directorio de trabajo
-WORKDIR /var/jenkins
+# Comando por defecto
+CMD ["tail", "-f", "/dev/null"]
