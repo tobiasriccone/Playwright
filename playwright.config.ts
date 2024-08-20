@@ -16,18 +16,18 @@ export default defineConfig({
   },
   projects: [
     {
-      name: 'web',
-      testDir: 'tests/web',
+      name: 'desktop',
+      testDir: 'tests/frontend',
       use: { ...devices['Desktop Chrome'] },
     },
     {
-      name: 'web-mobile',
-      testDir: 'tests/web',
+      name: 'mobile',
+      testDir: 'tests/frontend',
       use: { ...devices['iPhone 11'] },
     },
     {
-      name: 'api',
-      testDir: 'tests/api',
+      name: 'backend',
+      testDir: 'tests/backend',
       use: {},
     },
   ],
