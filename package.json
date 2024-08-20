@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "regre": "npx playwright test",
-    "regre-web": "npx playwright test --project=web",
-    "regre-mobile": "npx playwright test --project=web-mobile",
-    "regre-api": "npx playwright test --project=api",
+    "all": "npx playwright test",
+    "desktop": "npx playwright test --project=desktop",
+    "mobile": "npx playwright test --project=mobile",
+    "backend": "npx playwright test --project=backend",
     "allure": "npx allure generate reportes/allure-results -o reportes/allure-report --clean && npx allure open reportes/allure-report"
   },
   "keywords": [],
