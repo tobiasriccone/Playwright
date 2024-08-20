@@ -14,7 +14,7 @@ ENV PATH $JAVA_HOME/bin:$PATH
 RUN node -v && npm -v && java -version
 
 # Definir el directorio de trabajo en el contenedor
-WORKDIR /app
+WORKDIR /var/jenkins
 
 # Comando por defecto
 CMD ["tail", "-f", "/dev/null"]
