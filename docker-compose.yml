@@ -27,7 +27,7 @@ services:
     depends_on:
       - jenkins
     volumes:
-      - playwright-agent-vol:/var/jenkins/workspace
+      - playwright-agent-vol:/var/jenkins
 
 volumes:
   jenkins-vol:
