@@ -11,13 +11,13 @@ export class HomePage {
     }
 
     async validaLogo() {
-        await allure.step('Valida Logo Principal', async () => {
+        await allure.step('Home: Valida Logo Principal', async () => {
             await expect(this.page.locator("//div[@class='app_logo']")).toBeVisible()
         });
     }
 
     async clickProduct(productName: string) {
-        await allure.step('Busca Producto', async () => {
+        await allure.step('Home: Busca Producto', async () => {
             await this.page.locator("//div[contains(text(), '" + productName + "')]").click()
         });
     }
